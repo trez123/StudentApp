@@ -9,9 +9,8 @@ namespace StudentAppFrontend.Controllers;
 
 public class StudentController : Controller
 {
-        const string API_URL = "https://localhost:7240/api/Student/";
         private readonly IHttpClientFactory _clientHandler;
-        public StudentsController(IHttpClientFactory clientHandler)
+        public StudentController(IHttpClientFactory clientHandler)
         {
             this._clientHandler = clientHandler;
         }
@@ -44,7 +43,7 @@ public class StudentController : Controller
 
 
         [HttpPost]
-        public IActionResult Upsert(StudentVM studentvm)
+        public IActionResult Upsert(Student studentvm)
         {
            if (!ModelState.IsValid) return View(studentvm);
 
@@ -53,10 +52,6 @@ public class StudentController : Controller
                StudentName = studentvm.StudentName,
                EmailAddress = studentvm.EmailAddress,
                PhoneNumber = studentvm.PhoneNumber,
-               ParishId = studentvm.SelectedParishId,
-               ProgramId = studentvm.SelectedProgramId,
-               SizeId = studentvm.SelectedSizeId,
-               //StudntIdImageFile = studentvm.StudntIdImageFile
            };
 
            var json = JsonConvert.SerializeObject(student);

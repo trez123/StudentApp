@@ -5,7 +5,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient("StudentAPI", client =>
 {
-    client.BaseAddress = new Uri("http://localhost:7240/api/Student");
+    client.BaseAddress = new Uri("http://localhost:7275/api/Student");
 });
 
 
